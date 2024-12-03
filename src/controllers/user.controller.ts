@@ -9,7 +9,7 @@ export class UserController {
     this.userService = new UserService();
   }
 
-  // route - /user/:id
+  // /user/:id
   async getUser(req: Request, res: Response): Promise<any> {
     try {
       const { id } = req.params;
@@ -24,7 +24,7 @@ export class UserController {
     }
   }
 
-  // route - /user/
+  // /user/
   async createUser(req: Request, res: Response): Promise<any> {
     try {
       const user = req.body as UserTypes;
@@ -43,7 +43,7 @@ export class UserController {
     }
   }
 
-  // route - /user
+  // /user
   async updateUser(req: Request, res: Response): Promise<any> {
     try {
       const user = req.body as UserTypes;

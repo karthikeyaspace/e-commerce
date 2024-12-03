@@ -1,5 +1,5 @@
 import { db } from "../config/firebase";
-import { UserTypes, CreateUserTypes } from "../types";
+import { UserTypes } from "../types";
 import {
   collection,
   doc,
@@ -25,7 +25,9 @@ export class UserService {
     return user as UserTypes;
   }
 
-  async createUser(userData: CreateUserTypes): Promise<UserTypes> {
+  async createUser(
+    userData: Omit<UserTypes, "id" | "createdAt" | "updatedAt">
+  ): Promise<UserTypes> {
     const q = query(this.collection, where("email", "==", userData.email));
     const querySnapshot = await getDocs(q);
     if (!querySnapshot.empty) {
