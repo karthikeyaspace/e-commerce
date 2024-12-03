@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "4053ff13-2a73-441b-a7d4-ffbe55f7faf8",
+		"name": "e-commerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34569427"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"aa\",\r\n    \"email\": \"ssas@al.com\",\r\n    \"phoneNumber\": \"6969\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app//user",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app//user/abba6101-0b41-43c8-984e-a174c6fd4e26",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"",
+						"user",
+						"abba6101-0b41-43c8-984e-a174c6fd4e26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"7d1df353-42a8-42df-818d-1fdcd10e472f\",\r\n    \"name\": \"aa\",\r\n    \"email\": \"ssas@al.com\",\r\n    \"phoneNumber\": \"4023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/user",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sandles\",\r\n    \"category\": \"Footware\",\r\n    \"price\": 600,\r\n    \"stock\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/product",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/product/7300cb66-6445-40c9-9b60-607e4f0fd5e5",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"product",
+						"7300cb66-6445-40c9-9b60-607e4f0fd5e5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"2618d7e4-504c-436f-85db-cd10e8bbb0a1\",\r\n    \"name\": \"Sandles\",\r\n    \"category\": \"Footware\",\r\n    \"price\": 600,\r\n    \"stock\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/product",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get stock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/product/stock/all-products",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"product",
+						"stock",
+						"all-products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"7d1df353-42a8-42df-818d-1fdcd10e472f\",\r\n    \"productId\": \"7300cb66-6445-40c9-9b60-607e4f0fd5e5\",\r\n    \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/order",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/order/88d32ce0-e43f-46f2-aacb-2d5329e7a8e6",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"order",
+						"88d32ce0-e43f-46f2-aacb-2d5329e7a8e6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"88d32ce0-e43f-46f2-aacb-2d5329e7a8e6\",\r\n    \"userId\": \"abba6101-0b41-43c8-984e-a174c6fd4e26\",\r\n    \"productId\": \"7300cb66-6445-40c9-9b60-607e4f0fd5e5\",\r\n    \"quantity\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/order",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get past orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/order/recent/7",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"order",
+						"recent",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get users orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/order/user/abba6101-0b41-43c8-984e-a174c6fd4e26",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"order",
+						"user",
+						"abba6101-0b41-43c8-984e-a174c6fd4e26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user who bought a product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ecommerce-imaginehq.vercel.app/order/product/7300cb66-6445-40c9-9b60-607e4f0fd5e5",
+					"protocol": "https",
+					"host": [
+						"ecommerce-imaginehq",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"order",
+						"product",
+						"7300cb66-6445-40c9-9b60-607e4f0fd5e5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
