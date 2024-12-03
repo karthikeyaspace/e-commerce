@@ -1,46 +1,61 @@
 import { db } from "../config/firebase";
-import { UserTypes } from "../types";
-import { collection, doc, getDoc, addDoc, updateDoc } from "firebase/firestore";
+import { UserTypes, CreateUserTypes } from "../types";
+import {
+  collection,
+  doc,
+  getDoc,
+  updateDoc,
+  setDoc,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { randomUUID } from "crypto";
 
 export class UserService {
-  private collection = collection(db, "users");
+  private collection = collection(db, "ecommerce.users");
 
   async getUser(id: string): Promise<UserTypes> {
-    try {
-      const docRef = doc(this.collection, id);
-      const document = await getDoc(docRef);
-      const user = document.data();
-      return user as UserTypes;
-    } catch (e: any) {
-      throw new Error(e);
+    const docRef = doc(this.collection, id);
+    const document = await getDoc(docRef);
+    if (!document.exists()) {
+      throw new Error("User not found");
     }
+    const user = document.data();
+    return user as UserTypes;
   }
 
-  async createUser(user: UserTypes): Promise<UserTypes> {
-    try {
-      const docRef = doc(this.collection, user.email);
-      const document = await getDoc(docRef);
-      if (document.exists()) {
-        throw new Error("User already exists");
-      }
-      await addDoc(this.collection, user);
-      return user;
-    } catch (e: any) {
-      throw new Error(e);
+  async createUser(userData: CreateUserTypes): Promise<UserTypes> {
+    const q = query(this.collection, where("email", "==", userData.email));
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      throw new Error("User already exists");
     }
+
+    const user: UserTypes = {
+      id: randomUUID(),
+      ...userData,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    const docRef = doc(this.collection, user.id);
+    await setDoc(docRef, user);
+    return user;
   }
 
-  async updateUser(id: string, user: UserTypes): Promise<UserTypes> {
-    try {
-      const docRef = doc(this.collection, id);
-      const document = await getDoc(docRef);
-      if (!document.exists()) {
-        throw new Error("User does not exist");
-      }
-      await updateDoc(docRef, { ...user });
-      return user;
-    } catch (e: any) {
-      throw new Error(e);
+  async updateUser(userData: UserTypes): Promise<UserTypes> {
+    const docRef = doc(this.collection, userData.id);
+    const document = await getDoc(docRef);
+    if (!document.exists()) {
+      throw new Error("User not found");
     }
+
+    const updatedAt = new Date();
+    await updateDoc(docRef, {
+      ...userData,
+      updatedAt: updatedAt,
+    });
+
+    return { ...userData, updatedAt };
   }
 }

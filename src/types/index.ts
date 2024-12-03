@@ -7,6 +7,12 @@ interface UserTypes {
   updatedAt: Date;
 }
 
+interface CreateUserTypes {
+  name: string;
+  email: string;
+  phoneNumber: string;
+}
+
 interface ProductTypes {
   id: string;
   name: string;
@@ -27,4 +33,4 @@ interface OrderTypes {
   updatedAt?: Date;
 }
 
-export { UserTypes, ProductTypes, OrderTypes };
+export { UserTypes, CreateUserTypes, ProductTypes, OrderTypes };

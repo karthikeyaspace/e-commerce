@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 const env = {
   FRONTEND_URL: process.env.FRONTEND_URL || "http://localhost:3000",
   PORT: process.env.PORT || 8080,
