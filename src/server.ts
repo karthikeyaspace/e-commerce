@@ -3,7 +3,6 @@ import cors from "cors";
 import { config } from "dotenv";
 import expressAsyncHandler from "express-async-handler";
 import { env } from "./config/env";
-import { initializeFirebase } from "./config/firebase";
 import orderRoutes from "./routes/order.route";
 import userRoutes from "./routes/user.route";
 import productRoutes from "./routes/product.route";
@@ -15,7 +14,9 @@ app.use(cors());
 
 config();
 
-initializeFirebase();
+app.get("/", (req, res) => {
+  res.send("E commerce server");
+});
 
 app.use("/user", expressAsyncHandler(userRoutes));
 app.use("/product", expressAsyncHandler(productRoutes));

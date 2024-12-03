@@ -1,6 +1,8 @@
 interface UserTypes {
   id: string;
   name: string;
+  email: string;
+  phoneNumber: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -19,9 +21,10 @@ interface OrderTypes {
   id: string;
   userId: string;
   productId: string;
-  quantity: number;
   orderDate: Date;
-  status: "pending" | "completed" | "cancelled";
+  quantity: number;
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+export { UserTypes, ProductTypes, OrderTypes };
